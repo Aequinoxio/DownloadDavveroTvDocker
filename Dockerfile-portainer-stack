@@ -2,16 +2,24 @@ version: '3'
 services:
   downloaderDavveroTv:
     image: downloader_davvero_tv
+    
+# These instructions may be working (TO BE CKECKED!) instead of that before
+#    image: https://raw.githubusercontent.com/Aequinoxio/DownloadDavveroTvDocker/main/Dockerfile-portainer-image
+    
     container_name: DownloaderDavveroTv
+    
 # If you use nginx-proxy ad activate the environment variables below
 # you can comment the ports sections.
 # Be carefully: the network between nginx and this container has to be the same
 # of one of te two container mut access the other network (best if this is done by nginx)
+
     ports:
       - "58001:5800"
     volumes:
       - "/volume1/docker/DownloaderDavveroTv:/config:rw"
+      
 #    environment:
 #      VIRTUAL_HOST: <<YOUR SERVER DOMAIN >>>
 #      VIRTUAL_PORT: 5800
+
     restart: unless-stopped
