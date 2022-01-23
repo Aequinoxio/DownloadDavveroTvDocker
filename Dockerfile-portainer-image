@@ -1,0 +1,28 @@
+#### Portainer dockerfile for image creation ####
+
+# portainer image name: downloader_davvero_tv
+
+##### IMPORTANT #####
+# The DavveroTVVideoDownloader2.jar has to be presenti into the /config folder
+# This image assume that the /config is mounted with external volume so you can copy 
+# the file after the image creation but before container startup
+#####################
+
+# Pull base image.
+FROM jlesage/baseimage-gui:alpine-3.15-glibc
+
+# Install xterm.
+RUN add-pkg xterm
+
+# Install java
+RUN add-pkg curl
+
+# install openjdk
+RUN add-pkg openjdk17
+
+# create the startapp.sh file with basic startup commands
+RUN echo "#!/bin/sh" > /startapp.sh
+RUN echo "/usr/bin/java -jar /config/DavveroTVVideoDownloader2.jar" >> /startapp.sh
+
+# Set the name of the application.
+ENV APP_NAME="DownloadDavveroTv"
