@@ -3,8 +3,8 @@
 # portainer image name: downloader_davvero_tv
 
 ##### IMPORTANT #####
-# The DavveroTVVideoDownloader2.jar has to be presenti into the /config folder
-# This image assume that the /config is mounted with external volume so you can copy 
+# The DavveroTVVideoDownloader2.jar has to be put into the /config folder
+# This image assumes that the /config is mounted with external volume so you can copy 
 # the file after the image creation but before container startup
 #####################
 
